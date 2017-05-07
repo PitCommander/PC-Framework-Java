@@ -43,6 +43,13 @@ public class Module {
         announceListener = new AnnounceListener(address, port);
         commandTransmitter = new CommandTransmitter(address, port + 1);
 
+        /// LOAD CLASSES ///
+        try {
+            Class.forName("MODULE_ENTRY");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         /// STARTUP ///
         new Thread(commandTransmitter).start(); //Start the command transmitter
         announceListener.run(); //Start the announce listener
