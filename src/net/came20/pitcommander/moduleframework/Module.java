@@ -27,7 +27,7 @@ public class Module {
 
     public static void main(String[] args) {
         /// NETWORK CONFIG ///
-        String address = "10.0.0.2"; //Default server ip
+        String address = "10.2"; //Default server ip
         int port = 5800; //Default server port
 
         if (args.length == 1) { //We have a custom address
