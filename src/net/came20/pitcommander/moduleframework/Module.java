@@ -43,6 +43,9 @@ public class Module {
         announceListener = new AnnounceListener(address, port);
         commandTransmitter = new CommandTransmitter(address, port + 1);
 
+        /// START COMMAND HANDLER ///
+        new Thread(commandTransmitter).start(); //Start the command transmitter
+
         /// LOAD CLASSES ///
         try {
             Class.forName("MODULE_ENTRY");
@@ -50,8 +53,7 @@ public class Module {
             e.printStackTrace();
         }
 
-        /// STARTUP ///
-        new Thread(commandTransmitter).start(); //Start the command transmitter
+        /// START ANNOUNCE LISTENER ///
         announceListener.run(); //Start the announce listener
     }
 }

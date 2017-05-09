@@ -34,7 +34,6 @@ public class CommandTransmitter implements Runnable {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket socket = context.socket(ZMQ.REQ);
         socket.connect("tcp://" + address + ":" + port);
-        socket.setReceiveTimeOut(10000);
 
         NetworkJob currentJob = null;
 
